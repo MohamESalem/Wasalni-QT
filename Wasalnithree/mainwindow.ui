@@ -32,9 +32,9 @@
     <widget class="QPushButton" name="addButton">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>90</y>
-       <width>80</width>
+       <x>20</x>
+       <y>100</y>
+       <width>111</width>
        <height>24</height>
       </rect>
      </property>
@@ -45,9 +45,9 @@
     <widget class="QPushButton" name="remove">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>169</x>
        <y>90</y>
-       <width>80</width>
+       <width>111</width>
        <height>24</height>
       </rect>
      </property>
@@ -68,7 +68,7 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
-    <widget class="QLineEdit" name="cityRemoveText">
+    <widget class="QLineEdit" name="cityNameRemoveText">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -78,7 +78,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>City</string>
+      <string>City Name</string>
      </property>
     </widget>
     <widget class="Line" name="line_2">
@@ -105,14 +105,14 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLineEdit" name="edgeRemoveEdgeText">
+       <widget class="QLineEdit" name="edgeAddEdgeText">
         <property name="text">
          <string>Edge</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="cityRemoveEdgeText">
+       <widget class="QLineEdit" name="cityAddEdgeText">
         <property name="text">
          <string>City</string>
         </property>
@@ -120,17 +120,17 @@
       </item>
      </layout>
     </widget>
-    <widget class="QPushButton" name="removeEdgeButton">
+    <widget class="QPushButton" name="addEdgeButton">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>299</x>
        <y>90</y>
-       <width>80</width>
+       <width>111</width>
        <height>24</height>
       </rect>
      </property>
      <property name="text">
-      <string>Remove Edge</string>
+      <string>Add Edge</string>
      </property>
     </widget>
     <widget class="Line" name="line_3">
@@ -149,7 +149,7 @@
     <widget class="QPushButton" name="findShortestPathButton">
      <property name="geometry">
       <rect>
-       <x>520</x>
+       <x>590</x>
        <y>90</y>
        <width>191</width>
        <height>24</height>
@@ -162,24 +162,31 @@
     <widget class="QWidget" name="layoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>110</width>
-       <height>56</height>
+       <x>20</x>
+       <y>10</y>
+       <width>111</width>
+       <height>86</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLineEdit" name="edgeText">
+       <widget class="QLineEdit" name="cityNameAddText">
         <property name="text">
-         <string>Edge</string>
+         <string>City Name</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="cityAddText">
+       <widget class="QLineEdit" name="xAddText">
         <property name="text">
-         <string>City</string>
+         <string>X coordinate</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="yAddText">
+        <property name="text">
+         <string>Y coordinate</string>
         </property>
        </widget>
       </item>
@@ -188,7 +195,7 @@
     <widget class="QWidget" name="layoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>520</x>
+       <x>590</x>
        <y>20</y>
        <width>191</width>
        <height>56</height>
@@ -210,6 +217,58 @@
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="Line" name="line_4">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>0</y>
+       <width>16</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>20</y>
+       <width>110</width>
+       <height>56</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLineEdit" name="edgeRemoveEdgeText">
+        <property name="text">
+         <string>Edge</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="cityRemoveEdgeText">
+        <property name="text">
+         <string>City</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="removeEdgeButton_2">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>90</y>
+       <width>111</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remove Edge</string>
+     </property>
     </widget>
    </widget>
   </widget>

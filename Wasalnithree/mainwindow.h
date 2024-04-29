@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include "graph.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -14,6 +15,8 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+private:
+    Graph* graph;
     QGraphicsScene *scene;
     QGraphicsView *Map;
 public:

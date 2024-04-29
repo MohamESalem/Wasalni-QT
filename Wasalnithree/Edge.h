@@ -1,17 +1,13 @@
 #ifndef EDGE_H
 #define EDGE_H
 
-struct Edge {
-    int weight;
-    bool isEmpty;
-    Edge() {
-        this->isEmpty = true;
-    }
+#include <QGraphicsLineItem>
 
-    Edge(int weight) {
-        this->isEmpty = false;
-        this->weight = weight;
-    }
+class Edge : public QGraphicsLineItem {
+private:
+
+public:
+    Edge();
 };
 
 #endif // EDGE_H

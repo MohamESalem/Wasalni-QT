@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QtGui>
+#include "city.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -16,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     QGridLayout *grid = ui->gridLayout_3;
     Map = new QGraphicsView(scene);
     grid->addWidget(Map, 1, 1);
-
+    graph=new Graph;
 
 
 }
@@ -27,3 +28,11 @@ MainWindow::~MainWindow()
 
     delete ui;
 }
+
+void MainWindow::on_addButton_clicked()
+{
+    City* c=new City(ui->cityNameAddText->text(),ui->xAddText->text().toInt(),ui->yAddText->text().toInt());
+    scene->addItem(c->getText());
+    scene->addItem(c->getImage());
+}
+

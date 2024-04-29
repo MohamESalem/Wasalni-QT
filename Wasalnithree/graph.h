@@ -12,6 +12,11 @@ private:
 public:
     Graph();
     // add function protoypes here
+    void addCity();
+    void addEdge();
+    void removeCity(QString name); //remove it by name
+    void removeEdge();
+
 };
 
 #endif // GRAPH_H

@@ -6,33 +6,44 @@
 #include <QGraphicsRectItem>
 #include <QtGui>
 #include "city.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    scene = new QGraphicsScene;
-    QGraphicsRectItem *rect = new QGraphicsRectItem(0,0,798,628);
-    scene->addItem(rect);
     QGridLayout *grid = ui->gridLayout_3;
-    Map = new QGraphicsView(scene);
-    grid->addWidget(Map, 1, 1);
-    graph=new Graph;
-
-
+    graph = new Graph();
+    map = new Map();
+    grid->addWidget(map, 1, 1);
+    map->start();
 }
 
 MainWindow::~MainWindow()
 {
-
-
     delete ui;
+}
+
+Map *MainWindow::getMap()
+{
+    return map;
+}
+
+Graph *MainWindow::getGraph()
+{
+    return graph;
 }
 
 void MainWindow::on_addButton_clicked()
 {
-    City* c=new City(ui->cityNameAddText->text(),ui->xAddText->text().toInt(),ui->yAddText->text().toInt());
-    scene->addItem(c->getText());
-    scene->addItem(c->getImage());
+    int x = ui->xAddText->text().toInt();
+    int y = ui->yAddText->text().toInt();
+    QString cityName = ui->cityNameAddText->text();
+    // check if x and y are valid coordinates
+    if((x >= 0 && x <= 800) && (y >= 0 && y <= 630)) {
+        City* c=new City(cityName, x, y);
+        map->getScene()->addItem(c);
+        map->getScene()->addItem(c->getText());
+    }
 }
 

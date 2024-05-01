@@ -2,16 +2,12 @@
 #define EDGE_H
 
 #include <QGraphicsLineItem>
-#include <QGraphicsTextItem>
 
-class Edge  : public QGraphicsLineItem {
+class Edge : public QGraphicsLineItem {
 private:
-    int weight;
-    QGraphicsTextItem* text;
+
 public:
-    Edge(int,int,int,int,int,bool=false);
-    int getWeight();
-    QGraphicsTextItem* getText();
+    Edge();
 };
 
 #endif // EDGE_H

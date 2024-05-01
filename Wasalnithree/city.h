@@ -4,21 +4,19 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsTextItem>
 #include <QGraphicsPixmapItem>
-#include <QGraphicsSceneMouseEvent>
-
-class City : public QGraphicsPixmapItem {
+class City {
 private:
-    int x;
-    int y;
     QGraphicsTextItem* text;
+    QGraphicsPixmapItem* image;
 public:
     City(QString name,int x,int y);
+    City();
     void setCityPos(int x,int y);
-    QGraphicsTextItem* getText();
-    void boldText();
-    int getX();
-    int getY();
-    void mousePressEvent(QGraphicsSceneMouseEvent*);
+    QGraphicsTextItem *getText() const; // to add them to scene
+    QGraphicsPixmapItem* getImage();
+    bool operator<(const City &other) const;
+    bool operator==(const City &other) const;
+    bool operator!=(const City &other) const;
 };
 
 #endif // CITY_H

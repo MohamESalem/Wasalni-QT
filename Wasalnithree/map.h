@@ -1,32 +1,14 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include <QGraphicsView>
+// #include "mainwindow.h"
 #include <QGraphicsScene>
-#include "city.h"
+#include <QKeyEvent>
 
-class Map : public QGraphicsView
-{
-private:
-    QGraphicsScene* scene;
-    City* firstPressed;
-    int clicks;
-    void readCityFile();
-    void readEdgeFile();
+class Map : public QGraphicsScene {
 public:
     Map();
-    QGraphicsScene* getScene();
-    void start();
-    int getClicks();
-    void incrementClicks();
-    City* getFirstPressed();
-    void setFirstPressed(City*);
-    void restart();
-    void readData();
-    // FOR TESTING PURPOSES
-    City* c1;
-    City* c2;
-    City* c3;
+    // void keyPressEvent(QKeyEvent *event);
 };
 
 #endif // MAP_H

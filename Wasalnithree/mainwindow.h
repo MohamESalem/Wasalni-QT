@@ -5,7 +5,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include "graph.h"
-#include "map.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,14 +16,13 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 private:
-    Map* map;
     Graph* graph;
+    QGraphicsScene *scene;
+    QGraphicsView *Map;
 public:
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    Map* getMap();
-    Graph* getGraph();
 
 private slots:
     void on_addButton_clicked();

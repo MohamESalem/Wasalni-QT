@@ -35,6 +35,7 @@ public:
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QLineEdit *edgeAddEdgeText;
+    QLineEdit *city1AddEdgeText;
     QLineEdit *cityAddEdgeText;
     QPushButton *addEdgeButton;
     QFrame *line_3;
@@ -96,7 +97,7 @@ public:
         line_2->setFrameShadow(QFrame::Sunken);
         layoutWidget = new QWidget(frame);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(300, 20, 110, 56));
+        layoutWidget->setGeometry(QRect(300, 10, 110, 81));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -104,6 +105,11 @@ public:
         edgeAddEdgeText->setObjectName("edgeAddEdgeText");
 
         verticalLayout_2->addWidget(edgeAddEdgeText);
+
+        city1AddEdgeText = new QLineEdit(layoutWidget);
+        city1AddEdgeText->setObjectName("city1AddEdgeText");
+
+        verticalLayout_2->addWidget(city1AddEdgeText);
 
         cityAddEdgeText = new QLineEdit(layoutWidget);
         cityAddEdgeText->setObjectName("cityAddEdgeText");
@@ -123,7 +129,7 @@ public:
         findShortestPathButton->setGeometry(QRect(590, 90, 191, 24));
         layoutWidget_2 = new QWidget(frame);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(20, 10, 111, 86));
+        layoutWidget_2->setGeometry(QRect(20, 10, 111, 94));
         verticalLayout = new QVBoxLayout(layoutWidget_2);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -165,7 +171,7 @@ public:
         line_4->setFrameShadow(QFrame::Sunken);
         layoutWidget_4 = new QWidget(frame);
         layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(450, 20, 110, 56));
+        layoutWidget_4->setGeometry(QRect(450, 20, 110, 96));
         verticalLayout_4 = new QVBoxLayout(layoutWidget_4);
         verticalLayout_4->setObjectName("verticalLayout_4");
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -204,8 +210,9 @@ public:
         addButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         remove->setText(QCoreApplication::translate("MainWindow", "Remove", nullptr));
         cityNameRemoveText->setText(QCoreApplication::translate("MainWindow", "City Name", nullptr));
-        edgeAddEdgeText->setText(QCoreApplication::translate("MainWindow", "Edge", nullptr));
-        cityAddEdgeText->setText(QCoreApplication::translate("MainWindow", "City", nullptr));
+        edgeAddEdgeText->setText(QCoreApplication::translate("MainWindow", "Weight", nullptr));
+        city1AddEdgeText->setText(QCoreApplication::translate("MainWindow", "City1", nullptr));
+        cityAddEdgeText->setText(QCoreApplication::translate("MainWindow", "City2", nullptr));
         addEdgeButton->setText(QCoreApplication::translate("MainWindow", "Add Edge", nullptr));
         findShortestPathButton->setText(QCoreApplication::translate("MainWindow", "Find Shortest Path", nullptr));
         cityNameAddText->setText(QCoreApplication::translate("MainWindow", "City Name", nullptr));

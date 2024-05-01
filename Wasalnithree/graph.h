@@ -14,7 +14,7 @@ public:
     Graph();
     // add function protoypes here
     void addCity(City*);
-    void addEdge(City*,City*,int,QGraphicsScene* s);
+    void addEdge(City*,City*,int);
     void removeCity(QString); //remove it by name
     void removeEdge();
     bool isPathExist(City*,City*); // LACKS TESTING

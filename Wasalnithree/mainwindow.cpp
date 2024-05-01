@@ -51,7 +51,12 @@ void MainWindow::on_addButton_clicked()
 
 void MainWindow::on_addEdgeButton_clicked()
 {
-    graph->addEdge(graph->findCity(ui->city1AddEdgeText->text()),graph->findCity(ui->cityAddEdgeText->text()),ui->edgeAddEdgeText->text().toInt(),map->getScene());
+    City* c1 = graph->findCity(ui->city1AddEdgeText->text()),
+        * c2 = graph->findCity(ui->cityAddEdgeText->text());
+    int weight = ui->edgeAddEdgeText->text().toInt();
+    if(c1 != NULL && c2 != NULL) {
+        graph->addEdge(c1, c2, weight);
+    } // else we should output error
 
 }
 

@@ -1,7 +1,12 @@
 #include "graph.h"
 #include "stack"
 #include "queue"
+#include "edge.h"
 #include <QGraphicsScene>
+#include "mainwindow.h"
+
+extern MainWindow* w;
+
 Graph::Graph() {}
 
 void Graph::addCity(City* city)
@@ -16,14 +21,14 @@ void Graph::addCity(City* city)
     }
 }
 
-void Graph::addEdge(City* source, City* destination, int weight, QGraphicsScene* s)
+void Graph::addEdge(City* source, City* destination, int weight)
 {
     // Check if both cities exist in the graph
     if (adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
         // Add the edge from source to destination with the specified weight
         adjList[source].push_back(std::make_pair(destination, weight));
-        QGraphicsLineItem* l=new QGraphicsLineItem(source->getX(),source->getY(),destination->getX(),destination->getY());
-        s->addItem(l);
+        Edge* l = new Edge(source->getX(),source->getY(),destination->getX(),destination->getY(),weight);
+        w->getMap()->getScene()->addItem(l);
         qDebug() << "Added edge from " << source->getText()->toPlainText() << " to "
                  << destination->getText()->toPlainText() << " with weight " << weight;
     } else {

@@ -14,10 +14,11 @@ public:
     Graph();
     // add function protoypes here
     void addCity(City*);
-    void addEdge(City*,City*,int);
+    void addEdge(City*,City*,int,QGraphicsScene* s);
     void removeCity(QString); //remove it by name
     void removeEdge();
     bool isPathExist(City*,City*); // LACKS TESTING
+    City* findCity(QString n);
     std::pair<int, std::vector<City*>> dijkstra(City*,City*);
 };
 

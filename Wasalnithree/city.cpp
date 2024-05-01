@@ -10,6 +10,7 @@ City::City(QString name,int x,int y)
     // initialize data members
     this->x = x;
     this->y = y;
+    cityName=name;
     // set the text
     text = new QGraphicsTextItem(this);
     text->setFont(QFont("times",12));
@@ -70,6 +71,11 @@ void City::boldText()
 
 // getters
 QGraphicsTextItem *City::getText() {return text;}
+
+QString City::getName()
+{
+    return cityName;
+}
 int City::getX() {return x;}
 int City::getY() {return y;}
 

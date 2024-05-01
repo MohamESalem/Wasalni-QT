@@ -125,23 +125,30 @@
      <property name="geometry">
       <rect>
        <x>300</x>
-       <y>20</y>
+       <y>10</y>
        <width>110</width>
-       <height>56</height>
+       <height>81</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QLineEdit" name="edgeAddEdgeText">
         <property name="text">
-         <string>Edge</string>
+         <string>Weight</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="city1AddEdgeText">
+        <property name="text">
+         <string>City1</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="cityAddEdgeText">
         <property name="text">
-         <string>City</string>
+         <string>City2</string>
         </property>
        </widget>
       </item>
@@ -192,7 +199,7 @@
        <x>20</x>
        <y>10</y>
        <width>111</width>
-       <height>86</height>
+       <height>94</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -264,7 +271,7 @@
        <x>450</x>
        <y>20</y>
        <width>110</width>
-       <height>56</height>
+       <height>96</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">

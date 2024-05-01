@@ -1,7 +1,7 @@
 #include "graph.h"
 #include "stack"
 #include "queue"
-
+#include <QGraphicsScene>
 Graph::Graph() {}
 
 void Graph::addCity(City* city)
@@ -16,12 +16,14 @@ void Graph::addCity(City* city)
     }
 }
 
-void Graph::addEdge(City* source, City* destination, int weight)
+void Graph::addEdge(City* source, City* destination, int weight, QGraphicsScene* s)
 {
     // Check if both cities exist in the graph
     if (adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
         // Add the edge from source to destination with the specified weight
         adjList[source].push_back(std::make_pair(destination, weight));
+        QGraphicsLineItem* l=new QGraphicsLineItem(source->getX(),source->getY(),destination->getX(),destination->getY());
+        s->addItem(l);
         qDebug() << "Added edge from " << source->getText()->toPlainText() << " to "
                  << destination->getText()->toPlainText() << " with weight " << weight;
     } else {
@@ -50,6 +52,20 @@ bool Graph::isPathExist(City *c1, City *c2)
         }
     }
     return false;
+}
+
+City *Graph::findCity(QString n)
+{
+    for(auto it=adjList.begin();it!=adjList.end();it++)
+    {
+        if (it->first->getName()==n)
+        {
+            return it->first;
+        }
+    }
+    City* c=new City("null",0,0);
+    return c;
+    qDebug()<<"No city found";
 }
 
 std::pair<int, std::vector<City*>> Graph::dijkstra(City* source, City* destination)

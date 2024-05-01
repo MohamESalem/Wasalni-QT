@@ -10,11 +10,13 @@ class City : public QGraphicsPixmapItem {
 private:
     int x;
     int y;
+    QString cityName;
     QGraphicsTextItem* text;
 public:
     City(QString name,int x,int y);
     void setCityPos(int x,int y);
     QGraphicsTextItem* getText();
+    QString getName();
     void boldText();
     int getX();
     int getY();

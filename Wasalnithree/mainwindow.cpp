@@ -42,8 +42,16 @@ void MainWindow::on_addButton_clicked()
     // check if x and y are valid coordinates
     if((x >= 0 && x <= 800) && (y >= 0 && y <= 630)) {
         City* c=new City(cityName, x, y);
+        graph->addCity(c);
         map->getScene()->addItem(c);
         map->getScene()->addItem(c->getText());
     }
+}
+
+
+void MainWindow::on_addEdgeButton_clicked()
+{
+    graph->addEdge(graph->findCity(ui->city1AddEdgeText->text()),graph->findCity(ui->cityAddEdgeText->text()),ui->edgeAddEdgeText->text().toInt(),map->getScene());
+
 }
 

@@ -66,7 +66,7 @@ OBJECTS       = release/city.o \
 		release/qrc_images.o \
 		release/moc_mainwindow.o
 
-DIST          = images/city_location.jpg ../Wasalnithree/city.h \
+DIST          =  ../Wasalnithree/city.h \
 		../Wasalnithree/edge.h \
 		../Wasalnithree/graph.h \
 		../Wasalnithree/mainwindow.h \
@@ -125,6 +125,7 @@ release/qrc_images.cpp: ../Wasalnithree/images.qrc \
 		../Wasalnithree/images/location.png \
 		../Wasalnithree/images/orange.png \
 		../Wasalnithree/images/grey.png \
+		../Wasalnithree/images/city.png \
 		../Wasalnithree/files/edge.txt \
 		../Wasalnithree/files/city.txt
 	'C:\Qt\6.6.2\mingw_64\bin\rcc.exe' -name images --no-zstd ../Wasalnithree/images.qrc -o release/qrc_images.cpp

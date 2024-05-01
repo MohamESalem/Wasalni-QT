@@ -13,13 +13,15 @@ SOURCES += \
     edge.cpp \
     graph.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    map.cpp
 
 HEADERS += \
     city.h \
     edge.h \
     graph.h \
-    mainwindow.h
+    mainwindow.h \
+    map.h
 
 FORMS += \
     mainwindow.ui

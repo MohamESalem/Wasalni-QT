@@ -1,5 +1,14 @@
 <RCC>
     <qresource prefix="/images">
         <file>images/location.png</file>
+        <file>images/blue.png</file>
+        <file>images/city.png</file>
+        <file>images/green.png</file>
+        <file>images/grey.png</file>
+        <file>images/orange.png</file>
+    </qresource>
+    <qresource prefix="/files">
+        <file>files/city.txt</file>
+        <file>files/edge.txt</file>
     </qresource>
 </RCC>

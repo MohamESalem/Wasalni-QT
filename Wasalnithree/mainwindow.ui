@@ -9,20 +9,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>815</width>
-    <height>780</height>
+    <width>804</width>
+    <height>820</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>804</width>
-    <height>780</height>
+    <height>820</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>900</width>
-    <height>900</height>
+    <height>842</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,13 +32,13 @@
    <property name="minimumSize">
     <size>
      <width>804</width>
-     <height>780</height>
+     <height>820</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>804</width>
-     <height>780</height>
+     <height>820</height>
     </size>
    </property>
    <widget class="QFrame" name="frame">
@@ -46,8 +46,8 @@
      <rect>
       <x>-10</x>
       <y>640</y>
-      <width>821</width>
-      <height>131</height>
+      <width>811</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -60,7 +60,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
+       <y>110</y>
        <width>111</width>
        <height>24</height>
       </rect>
@@ -73,7 +73,7 @@
      <property name="geometry">
       <rect>
        <x>169</x>
-       <y>90</y>
+       <y>110</y>
        <width>111</width>
        <height>24</height>
       </rect>
@@ -88,7 +88,7 @@
        <x>150</x>
        <y>0</y>
        <width>16</width>
-       <height>131</height>
+       <height>171</height>
       </rect>
      </property>
      <property name="orientation">
@@ -114,7 +114,7 @@
        <x>280</x>
        <y>0</y>
        <width>16</width>
-       <height>131</height>
+       <height>171</height>
       </rect>
      </property>
      <property name="orientation">
@@ -158,7 +158,7 @@
      <property name="geometry">
       <rect>
        <x>299</x>
-       <y>90</y>
+       <y>110</y>
        <width>111</width>
        <height>24</height>
       </rect>
@@ -173,7 +173,7 @@
        <x>420</x>
        <y>0</y>
        <width>16</width>
-       <height>131</height>
+       <height>171</height>
       </rect>
      </property>
      <property name="orientation">
@@ -184,7 +184,7 @@
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>90</y>
+       <y>110</y>
        <width>191</width>
        <height>24</height>
       </rect>
@@ -258,7 +258,7 @@
        <x>570</x>
        <y>0</y>
        <width>16</width>
-       <height>131</height>
+       <height>171</height>
       </rect>
      </property>
      <property name="orientation">
@@ -295,13 +295,98 @@
      <property name="geometry">
       <rect>
        <x>450</x>
-       <y>90</y>
+       <y>110</y>
        <width>111</width>
        <height>24</height>
       </rect>
      </property>
      <property name="text">
       <string>Remove Edge</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="add_text_error">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+</string>
+     </property>
+     <property name="text">
+      <string>*Change Name or Position</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="remove_text_error">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>140</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+</string>
+     </property>
+     <property name="text">
+      <string>*This City doesn't exist</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="add_edge_text_error">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>140</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+</string>
+     </property>
+     <property name="text">
+      <string>*Wrong Cities or Weight</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="remove_edge_text_error">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>140</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+</string>
+     </property>
+     <property name="text">
+      <string>*Wrong Cities</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="find_path_text_error">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>140</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+</string>
+     </property>
+     <property name="text">
+      <string>*Wrong Cities</string>
      </property>
     </widget>
    </widget>

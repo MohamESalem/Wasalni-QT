@@ -52,8 +52,8 @@ public:
     QFrame *line_4;
     QWidget *layoutWidget_4;
     QVBoxLayout *verticalLayout_4;
-    QLineEdit *edgeRemoveEdgeText;
-    QLineEdit *cityRemoveEdgeText;
+    QLineEdit *removeEdge1;
+    QLineEdit *removeEdge2;
     QPushButton *removeEdgeButton;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout_3;
@@ -97,7 +97,7 @@ public:
         line_2->setFrameShadow(QFrame::Shadow::Sunken);
         layoutWidget = new QWidget(frame);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(300, 10, 110, 81));
+        layoutWidget->setGeometry(QRect(300, 10, 110, 94));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -171,19 +171,19 @@ public:
         line_4->setFrameShadow(QFrame::Shadow::Sunken);
         layoutWidget_4 = new QWidget(frame);
         layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(450, 20, 110, 96));
+        layoutWidget_4->setGeometry(QRect(450, 20, 110, 61));
         verticalLayout_4 = new QVBoxLayout(layoutWidget_4);
         verticalLayout_4->setObjectName("verticalLayout_4");
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        edgeRemoveEdgeText = new QLineEdit(layoutWidget_4);
-        edgeRemoveEdgeText->setObjectName("edgeRemoveEdgeText");
+        removeEdge1 = new QLineEdit(layoutWidget_4);
+        removeEdge1->setObjectName("removeEdge1");
 
-        verticalLayout_4->addWidget(edgeRemoveEdgeText);
+        verticalLayout_4->addWidget(removeEdge1);
 
-        cityRemoveEdgeText = new QLineEdit(layoutWidget_4);
-        cityRemoveEdgeText->setObjectName("cityRemoveEdgeText");
+        removeEdge2 = new QLineEdit(layoutWidget_4);
+        removeEdge2->setObjectName("removeEdge2");
 
-        verticalLayout_4->addWidget(cityRemoveEdgeText);
+        verticalLayout_4->addWidget(removeEdge2);
 
         removeEdgeButton = new QPushButton(frame);
         removeEdgeButton->setObjectName("removeEdgeButton");
@@ -220,8 +220,8 @@ public:
         yAddText->setText(QCoreApplication::translate("MainWindow", "Y coordinate", nullptr));
         cityOnePathText->setText(QCoreApplication::translate("MainWindow", "City 1", nullptr));
         cityTwoPathText->setText(QCoreApplication::translate("MainWindow", "City 2", nullptr));
-        edgeRemoveEdgeText->setText(QCoreApplication::translate("MainWindow", "Edge", nullptr));
-        cityRemoveEdgeText->setText(QCoreApplication::translate("MainWindow", "City", nullptr));
+        removeEdge1->setText(QCoreApplication::translate("MainWindow", "City1", nullptr));
+        removeEdge2->setText(QCoreApplication::translate("MainWindow", "City2", nullptr));
         removeEdgeButton->setText(QCoreApplication::translate("MainWindow", "Remove Edge", nullptr));
     } // retranslateUi
 

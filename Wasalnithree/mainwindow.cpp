@@ -60,3 +60,16 @@ void MainWindow::on_addEdgeButton_clicked()
 
 }
 
+
+void MainWindow::on_remove_clicked()
+{
+    graph->removeCity(graph->findCity(ui->cityNameRemoveText->text()));
+
+}
+
+
+void MainWindow::on_removeEdgeButton_clicked()
+{
+    graph->removeEdge(graph->findCity(ui->removeEdge1->text()),graph->findCity(ui->removeEdge2->text()));
+}
+

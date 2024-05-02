@@ -12,6 +12,7 @@ public:
     Edge(int,int,int,int,int,bool=false);
     int getWeight();
     QGraphicsTextItem* getText();
+    int xi,xe,yi,ye;
 };
 
 #endif // EDGE_H

@@ -127,7 +127,7 @@
        <x>300</x>
        <y>10</y>
        <width>110</width>
-       <height>81</height>
+       <height>94</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -271,21 +271,21 @@
        <x>450</x>
        <y>20</y>
        <width>110</width>
-       <height>96</height>
+       <height>61</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QLineEdit" name="edgeRemoveEdgeText">
+       <widget class="QLineEdit" name="removeEdge1">
         <property name="text">
-         <string>Edge</string>
+         <string>City1</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="cityRemoveEdgeText">
+       <widget class="QLineEdit" name="removeEdge2">
         <property name="text">
-         <string>City</string>
+         <string>City2</string>
         </property>
        </widget>
       </item>

@@ -29,12 +29,85 @@ void Graph::addEdge(City* source, City* destination, int weight)
         adjList[source].push_back(std::make_pair(destination, weight));
         Edge* l = new Edge(source->getX(),source->getY(),destination->getX(),destination->getY(),weight);
         w->getMap()->getScene()->addItem(l);
+        edgesv.push_back(l);
         qDebug() << "Added edge from " << source->getText()->toPlainText() << " to "
                  << destination->getText()->toPlainText() << " with weight " << weight;
     } else {
         qDebug() << "One or both cities don't exist in the graph";
     }
+    printGraph();
 }
+void Graph::removeCity(City* city)
+{
+    w->getMap()->getScene()->removeItem(city);
+    // Check if the city exists in the graph
+    if (adjList.find(city) != adjList.end()) {
+        // Remove all edges associated with the city
+        for (auto it = adjList.begin(); it != adjList.end(); ++it) {
+            for (auto jt = it->second.begin(); jt != it->second.end(); ++jt) {
+                if (jt->first == city) {
+                    removeEdge(it->first,jt->first);
+                    it->second.erase(jt);
+
+                    break;
+                }
+            }
+        }
+
+        // Remove the city itself from the adjacency list
+        adjList.erase(city);
+
+        qDebug() << "Removed city:" << city->getText()->toPlainText();
+    } else {
+        qDebug() << "City not found in the graph";
+    }
+    printGraph();
+}
+void Graph::removeEdge(City* source, City* destination)
+{
+
+    for(int i=0;i<int(edgesv.size());i++)
+    {
+        if(((edgesv[i]->xi==source->getX()&&edgesv[i]->yi==source->getY())&&(edgesv[i]->xe==destination->getX()&&edgesv[i]->ye==destination->getY()))
+            ||((edgesv[i]->xi==destination->getX()&&edgesv[i]->yi==destination->getY())&&(edgesv[i]->xe==source->getX()&&edgesv[i]->ye==source->getY()) ))
+        {
+            w->getMap()->getScene()->removeItem(edgesv[i]);
+        }
+    }
+    // Check if both cities exist in the graph
+    if (adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
+        // Find the edge and remove it
+        for (auto it = adjList[source].begin(); it != adjList[source].end(); ++it) {
+            if (it->first == destination) {
+                adjList[source].erase(it);
+
+
+                qDebug() << "Removed edge from " << source->getText()->toPlainText() << " to "
+                         << destination->getText()->toPlainText();
+                return;
+            }
+        }
+        qDebug() << "Edge not found between " << source->getText()->toPlainText() << " and "
+                 << destination->getText()->toPlainText();
+    } else {
+        qDebug() << "One or both cities don't exist in the graph";
+    }
+    printGraph();
+}
+bool Graph::isEdgeExist(City* source, City* destination) {
+    // Check if both source and destination cities exist in the graph
+    if (adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
+        // Iterate through the adjacency list of the source city
+        for (const auto& edge : adjList[source]) {
+            // Check if the destination city is connected to the source city
+            if (edge.first == destination) {
+                return true; // Edge exists
+            }
+        }
+    }
+    return false; // Edge doesn't exist or one or both cities don't exist
+}
+
 
 bool Graph::isPathExist(City *c1, City *c2)
 {
@@ -123,3 +196,15 @@ std::pair<int, std::vector<City*>> Graph::dijkstra(City* source, City* destinati
 
     return std::make_pair(distances[destination], path);
 }
+void Graph::printGraph() const
+{
+    qDebug() << "Graph:";
+    for (const auto& entry : adjList) {
+        qDebug() << "City:" << entry.first->getName();
+        qDebug() << "Adjacent Cities:";
+        for (const auto& edge : entry.second) {
+            qDebug() << "- " << edge.first->getName() << " (Weight: " << edge.second << ")";
+        }
+    }
+}
+

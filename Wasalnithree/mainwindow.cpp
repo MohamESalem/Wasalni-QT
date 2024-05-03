@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->cityNameAddText->setPlaceholderText("City Name");
 }
 
 MainWindow::~MainWindow()
@@ -50,7 +51,6 @@ void MainWindow::on_addButton_clicked()
         City* c=new City(cityName, x, y);
         graph->addCity(c);
     } // else output error message
-
 }
 
 void MainWindow::on_addEdgeButton_clicked()

@@ -243,3 +243,17 @@ void Graph::printGraph() const
     }
 }
 
+std::vector<Edge *> Graph::getEdgesVector()
+{
+    return edgesv;
+}
+
+std::map<City *, std::vector<std::pair<City *, int> > > Graph::getAdjList()
+{
+    return adjList;
+}
+
+void Graph::clearAdjList()
+{
+    adjList.clear();
+}

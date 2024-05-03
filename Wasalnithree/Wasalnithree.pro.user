@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 12.0.2, 2024-05-03T01:18:08. -->
+<!-- Written by QtCreator 12.0.2, 2024-05-03T18:33:03. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -159,11 +159,13 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/AUC/2. Spring 2024/4. CS2 Lab/Project/Wasalni-QT/Wasalnithree/Wasalnithree.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/AUC/2. Spring 2024/4. CS2 Lab/Project/Wasalni-QT/Wasalnithree/Wasalnithree.pro</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/AUC/2. Spring 2024/4. CS2 Lab/Project/Wasalni-QT/build-Wasalnithree-Desktop_Qt_6_6_2_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

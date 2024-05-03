@@ -18,10 +18,10 @@ Edge::Edge(int x1, int y1, int x2, int y2, int w, bool b) {
     ye=y2;
 
     // manipulate x1, y1, x2, y2
-    x1 += 45;
-    x2 += 45;
-    y1 += 45;
-    y2 += 45;
+    x1 += 35;
+    x2 += 35;
+    y1 += 35;
+    y2 += 35;
 
 
     // draw the line

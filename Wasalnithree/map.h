@@ -3,6 +3,7 @@
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QTimer>
 #include "city.h"
 
 class Map : public QGraphicsView
@@ -20,7 +21,6 @@ public:
     void restart();
     void setFinished(bool);
     bool getFinshed();
-
 };
 
 #endif // MAP_H

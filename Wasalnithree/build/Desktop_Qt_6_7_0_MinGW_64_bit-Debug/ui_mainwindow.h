@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
@@ -55,6 +56,11 @@ public:
     QLineEdit *removeEdge1;
     QLineEdit *removeEdge2;
     QPushButton *removeEdgeButton;
+    QLabel *add_text_error;
+    QLabel *remove_text_error;
+    QLabel *add_edge_text_error;
+    QLabel *remove_edge_text_error;
+    QLabel *find_path_text_error;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout_3;
     QStatusBar *statusbar;
@@ -64,27 +70,27 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
-        MainWindow->resize(815, 780);
-        MainWindow->setMinimumSize(QSize(804, 780));
-        MainWindow->setMaximumSize(QSize(900, 900));
+        MainWindow->resize(811, 820);
+        MainWindow->setMinimumSize(QSize(804, 820));
+        MainWindow->setMaximumSize(QSize(900, 842));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        centralwidget->setMinimumSize(QSize(804, 780));
-        centralwidget->setMaximumSize(QSize(804, 780));
+        centralwidget->setMinimumSize(QSize(804, 820));
+        centralwidget->setMaximumSize(QSize(804, 820));
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(-10, 640, 821, 131));
+        frame->setGeometry(QRect(-10, 640, 811, 171));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         addButton = new QPushButton(frame);
         addButton->setObjectName("addButton");
-        addButton->setGeometry(QRect(20, 100, 111, 24));
+        addButton->setGeometry(QRect(20, 110, 111, 24));
         remove = new QPushButton(frame);
         remove->setObjectName("remove");
-        remove->setGeometry(QRect(169, 90, 111, 24));
+        remove->setGeometry(QRect(169, 110, 111, 24));
         line = new QFrame(frame);
         line->setObjectName("line");
-        line->setGeometry(QRect(150, 0, 16, 131));
+        line->setGeometry(QRect(150, 0, 16, 171));
         line->setFrameShape(QFrame::Shape::VLine);
         line->setFrameShadow(QFrame::Shadow::Sunken);
         cityNameRemoveText = new QLineEdit(frame);
@@ -92,7 +98,7 @@ public:
         cityNameRemoveText->setGeometry(QRect(170, 20, 108, 24));
         line_2 = new QFrame(frame);
         line_2->setObjectName("line_2");
-        line_2->setGeometry(QRect(280, 0, 16, 131));
+        line_2->setGeometry(QRect(280, 0, 16, 171));
         line_2->setFrameShape(QFrame::Shape::VLine);
         line_2->setFrameShadow(QFrame::Shadow::Sunken);
         layoutWidget = new QWidget(frame);
@@ -118,15 +124,15 @@ public:
 
         addEdgeButton = new QPushButton(frame);
         addEdgeButton->setObjectName("addEdgeButton");
-        addEdgeButton->setGeometry(QRect(299, 90, 111, 24));
+        addEdgeButton->setGeometry(QRect(299, 110, 111, 24));
         line_3 = new QFrame(frame);
         line_3->setObjectName("line_3");
-        line_3->setGeometry(QRect(420, 0, 16, 131));
+        line_3->setGeometry(QRect(420, 0, 16, 171));
         line_3->setFrameShape(QFrame::Shape::VLine);
         line_3->setFrameShadow(QFrame::Shadow::Sunken);
         findShortestPathButton = new QPushButton(frame);
         findShortestPathButton->setObjectName("findShortestPathButton");
-        findShortestPathButton->setGeometry(QRect(590, 90, 191, 24));
+        findShortestPathButton->setGeometry(QRect(590, 110, 191, 24));
         layoutWidget_2 = new QWidget(frame);
         layoutWidget_2->setObjectName("layoutWidget_2");
         layoutWidget_2->setGeometry(QRect(20, 10, 111, 94));
@@ -166,7 +172,7 @@ public:
 
         line_4 = new QFrame(frame);
         line_4->setObjectName("line_4");
-        line_4->setGeometry(QRect(570, 0, 16, 131));
+        line_4->setGeometry(QRect(570, 0, 16, 171));
         line_4->setFrameShape(QFrame::Shape::VLine);
         line_4->setFrameShadow(QFrame::Shadow::Sunken);
         layoutWidget_4 = new QWidget(frame);
@@ -187,10 +193,35 @@ public:
 
         removeEdgeButton = new QPushButton(frame);
         removeEdgeButton->setObjectName("removeEdgeButton");
-        removeEdgeButton->setGeometry(QRect(450, 90, 111, 24));
+        removeEdgeButton->setGeometry(QRect(450, 110, 111, 24));
+        add_text_error = new QLabel(frame);
+        add_text_error->setObjectName("add_text_error");
+        add_text_error->setGeometry(QRect(10, 140, 141, 31));
+        add_text_error->setStyleSheet(QString::fromUtf8("color: red;\n"
+""));
+        remove_text_error = new QLabel(frame);
+        remove_text_error->setObjectName("remove_text_error");
+        remove_text_error->setGeometry(QRect(160, 140, 141, 31));
+        remove_text_error->setStyleSheet(QString::fromUtf8("color: red;\n"
+""));
+        add_edge_text_error = new QLabel(frame);
+        add_edge_text_error->setObjectName("add_edge_text_error");
+        add_edge_text_error->setGeometry(QRect(290, 140, 141, 31));
+        add_edge_text_error->setStyleSheet(QString::fromUtf8("color: red;\n"
+""));
+        remove_edge_text_error = new QLabel(frame);
+        remove_edge_text_error->setObjectName("remove_edge_text_error");
+        remove_edge_text_error->setGeometry(QRect(430, 140, 141, 31));
+        remove_edge_text_error->setStyleSheet(QString::fromUtf8("color: red;\n"
+""));
+        find_path_text_error = new QLabel(frame);
+        find_path_text_error->setObjectName("find_path_text_error");
+        find_path_text_error->setGeometry(QRect(580, 140, 141, 31));
+        find_path_text_error->setStyleSheet(QString::fromUtf8("color: red;\n"
+""));
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName("gridLayoutWidget");
-        gridLayoutWidget->setGeometry(QRect(10, 0, 801, 631));
+        gridLayoutWidget->setGeometry(QRect(10, 0, 791, 631));
         gridLayout_3 = new QGridLayout(gridLayoutWidget);
         gridLayout_3->setObjectName("gridLayout_3");
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -215,7 +246,7 @@ public:
         cityAddEdgeText->setText(QCoreApplication::translate("MainWindow", "City2", nullptr));
         addEdgeButton->setText(QCoreApplication::translate("MainWindow", "Add Edge", nullptr));
         findShortestPathButton->setText(QCoreApplication::translate("MainWindow", "Find Shortest Path", nullptr));
-        cityNameAddText->setText(QCoreApplication::translate("MainWindow", "City Name", nullptr));
+        cityNameAddText->setText(QString());
         xAddText->setText(QCoreApplication::translate("MainWindow", "X coordinate", nullptr));
         yAddText->setText(QCoreApplication::translate("MainWindow", "Y coordinate", nullptr));
         cityOnePathText->setText(QCoreApplication::translate("MainWindow", "City 1", nullptr));
@@ -223,6 +254,11 @@ public:
         removeEdge1->setText(QCoreApplication::translate("MainWindow", "City1", nullptr));
         removeEdge2->setText(QCoreApplication::translate("MainWindow", "City2", nullptr));
         removeEdgeButton->setText(QCoreApplication::translate("MainWindow", "Remove Edge", nullptr));
+        add_text_error->setText(QCoreApplication::translate("MainWindow", "*Change Name or Position", nullptr));
+        remove_text_error->setText(QCoreApplication::translate("MainWindow", "*This City doesn't exist", nullptr));
+        add_edge_text_error->setText(QCoreApplication::translate("MainWindow", "*Wrong Cities or Weight", nullptr));
+        remove_edge_text_error->setText(QCoreApplication::translate("MainWindow", "*Wrong Cities", nullptr));
+        find_path_text_error->setText(QCoreApplication::translate("MainWindow", "*Wrong Cities", nullptr));
     } // retranslateUi
 
 };

@@ -10,23 +10,17 @@ class Map : public QGraphicsView
 private:
     QGraphicsScene* scene;
     City* firstPressed;
-    int clicks;
-    void readCityFile();
-    void readEdgeFile();
+    bool finished;
 public:
     Map();
     QGraphicsScene* getScene();
     void start();
-    int getClicks();
-    void incrementClicks();
     City* getFirstPressed();
     void setFirstPressed(City*);
     void restart();
-    void readData();
-    // FOR TESTING PURPOSES
-    City* c1;
-    City* c2;
-    City* c3;
+    void setFinished(bool);
+    bool getFinshed();
+
 };
 
 #endif // MAP_H

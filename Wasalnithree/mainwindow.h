@@ -25,6 +25,7 @@ public:
     ~MainWindow();
     Map* getMap();
     Graph* getGraph();
+    void start();
 
 private slots:
     void on_addButton_clicked();

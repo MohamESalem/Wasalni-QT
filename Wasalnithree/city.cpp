@@ -34,30 +34,28 @@ void City::setCityPos(int x, int y)
 
 void City::mousePressEvent(QGraphicsSceneMouseEvent*event) {
     if(event->button() == Qt::LeftButton) {
-        if(w->getMap()->getFirstPressed() != this) w->getMap()->incrementClicks();
-        if(w->getMap()->getClicks() == 1) {
-            setPixmap(QPixmap(":/images/images/orange.png").scaled(90,90));
-            boldText();
-            w->getMap()->setFirstPressed(this);
-        } else if(w->getMap()->getClicks() == 2) {
-            setPixmap(QPixmap(":/images/images/green.png").scaled(90,90));
-            boldText();
-            // We should hanlde the case if no path exists
-            // if(!w->getGraph()->isPathExist(w->getMap->getFirstPressed, this))
-            // output error message
-            // else:
-            // implement dijkastra to get a vector of vertices
-            // assume the vector is the following
-            std::vector<City*> path = {w->getMap()->c1, w->getMap()->c2, w->getMap()->c3};
-            for(size_t i = 0; i < path.size() - 1; i++) {
-                Edge* e = new Edge(path[i]->getX(), path[i]->getY(), path[i+1]->getX(), path[i+1]->getY(), 0, true);
-                scene()->addItem(e);
-                if(i + 1 != path.size() - 1) path[i+1]->boldText();
+        // if(w->getMap()->getFirstPressed() != this) w->getMap()->incrementClicks();
+        if(!w->getMap()->getFinshed()) {
+            if(w->getMap()->getFirstPressed() == NULL) {
+                setPixmap(QPixmap(":/images/images/orange.png").scaled(90,90));
+                boldText();
+                w->getMap()->setFirstPressed(this);
+            } else {
+                setPixmap(QPixmap(":/images/images/green.png").scaled(90,90));
+                boldText();
+                w->getMap()->setFinished(true);
+                // We should hanlde the case if no path exists
+                if(!w->getGraph()->isPathExist(w->getMap()->getFirstPressed(), this)) {
+                    qDebug() << "Not Found!\n";
+                } else {
+                    std::vector<City*> path = w->getGraph()->dijkstra(w->getMap()->getFirstPressed(), this).second;
+                    for(size_t i = 0; i < path.size() - 1; i++) {
+                        Edge* e = new Edge(path[i]->getX(), path[i]->getY(), path[i+1]->getX(), path[i+1]->getY(), 0, true);
+                        scene()->addItem(e);
+                        if(i + 1 != path.size() - 1) path[i+1]->boldText();
+                    }
+                }
             }
-        } else if(w->getMap()->getClicks() == 3) {
-            // NEED TO CHANGE THAT LATER
-            w->getMap()->restart();
-            // map->msg->setPlainText("* Press R to clear!");
         }
     }
 }

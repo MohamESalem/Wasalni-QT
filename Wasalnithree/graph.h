@@ -19,11 +19,11 @@ public:
     void removeCity(City*); //remove it by name
     void removeEdge(City*,City*);
     bool isPathExist(City*,City*); // LACKS TESTING
-    City* findCity(QString n);
+    City* findCity(QString);
     std::pair<int, std::vector<City*>> dijkstra(City*,City*);
-     std::vector<Edge*> edgesv;
+    std::vector<Edge*> edgesv;
     bool isEdgeExist(City* source, City* destination);
-     void printGraph() const;
+    void printGraph() const;
 };
 
 #endif // GRAPH_H

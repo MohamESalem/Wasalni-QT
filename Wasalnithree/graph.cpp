@@ -8,15 +8,6 @@
 extern MainWindow* w;
 
 Graph::Graph() {
-    City* c1 = new City("Alexandria", 10, 10);
-    addCity(c1);
-    City* c2 = new City("Cairo",180,170);
-    addCity(c2);
-    City* c3 = new City("Ismailia",350,10);
-    addCity(c3);
-    addEdge(c1,c2,3);
-    addEdge(c1,c3,7);
-    addEdge(c3,c2,2);
     // std::vector<City*>path = dijkstra(c1,c3).second;
     // for(auto&c:path) qDebug() << c->getName();
     // removeCity(c1);

@@ -1,12 +1,13 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include <QGridLayout>
-#include <QGraphicsView>
-#include <QGraphicsScene>
+#include <QFileDialog>
 #include <QGraphicsRectItem>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGridLayout>
+#include <QMessageBox>
 #include <QtGui>
 #include "city.h"
-
+#include "ui_mainwindow.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -97,3 +98,130 @@ void MainWindow::on_removeEdgeButton_clicked()
         ui->remove_edge_text_error->setVisible(true);
 }
 
+void MainWindow::on_saveButton_clicked()
+{
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    QString dateTimeString = currentDateTime.toString("yyyy-MM-dd-hh-mm-ss");
+    QString currentDir = QDir::currentPath();
+
+    // Save city data
+    QString cityFileName = "City-" + dateTimeString + ".txt";
+    QFile cityFile(cityFileName);
+    if (cityFile.open(QIODevice::WriteOnly)) {
+        QTextStream out(&cityFile);
+        for (const auto &entry : graph->getAdjList()) {
+            out << entry.first->getName() << " " << entry.first->getX() << " "
+                << entry.first->getY() << "\n";
+        }
+        cityFile.close();
+        QMessageBox::information(this,
+                                 "Success",
+                                 "City data saved to " + cityFileName + " in " + currentDir);
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to save city data");
+    }
+
+    // Save edge data
+    QString edgeFileName = "Edge-" + dateTimeString + ".txt";
+    QFile edgeFile(edgeFileName);
+    if (edgeFile.open(QIODevice::WriteOnly)) {
+        QTextStream out(&edgeFile);
+        QSet<QString> writtenEdges; // Keep track of written edges
+        for (const auto &entry : graph->getAdjList()) {
+            QString vertexName = entry.first->getName();
+            for (const auto &edge : entry.second) {
+                QString adjacentVertexName = edge.first->getName();
+                QString edgeKey = vertexName < adjacentVertexName
+                                      ? vertexName + " " + adjacentVertexName
+                                      : adjacentVertexName + " " + vertexName;
+                if (!writtenEdges.contains(edgeKey)) {
+                    out << vertexName << " " << adjacentVertexName << " " << edge.second << "\n";
+                    writtenEdges.insert(edgeKey);
+                }
+            }
+        }
+        edgeFile.close();
+        QMessageBox::information(this,
+                                 "Success",
+                                 "Edge data saved to " + edgeFileName + " in " + currentDir);
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to save edge data");
+    }
+}
+
+void MainWindow::on_LoadCitiesButton_clicked()
+{
+    // Clear existing city data from the graph
+    // graph.clearCities();
+
+    QString filePath = QFileDialog::getOpenFileName(this,
+                                                    "Load Data",
+                                                    QDir::currentPath(),
+                                                    "Text files (*.txt)");
+    if (filePath.isEmpty()) {
+        return;
+    }
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(this, "Error", "Failed to open file for reading");
+        return;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList parts = line.split(" ");
+        if (parts.size() >= 3) {
+            QString cityName = parts[0];
+            int x = parts[1].toInt();
+            int y = parts[2].toInt();
+            City *city = new City(cityName, x, y);
+            graph->addCity(city);
+        }
+    }
+
+    file.close();
+    QMessageBox::information(this, "Success", "Data loaded successfully from " + filePath);
+}
+
+void MainWindow::on_LoadEdgesButton_clicked()
+{
+    // Clear existing edge data from the graph
+    // graph.clearEdges();
+
+    QString filePath = QFileDialog::getOpenFileName(this,
+                                                    "Load Edge Data",
+                                                    QDir::currentPath(),
+                                                    "Text files (*.txt)");
+    if (filePath.isEmpty()) {
+        return;
+    }
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(this, "Error", "Failed to open file for reading");
+        return;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList parts = line.split(" ");
+        if (parts.size() >= 3) {
+            QString city1Name = parts[0];
+            QString city2Name = parts[1];
+            int weight = parts[2].toInt();
+            City *city1 = graph->findCity(city1Name);
+            City *city2 = graph->findCity(city2Name);
+            if (city1 && city2) {
+                graph->addEdge(city1, city2, weight);
+            } else {
+                qDebug() << "One or both cities not found while loading edge data";
+            }
+        }
+    }
+
+    file.close();
+    QMessageBox::information(this, "Success", "Edge data loaded successfully from " + filePath);
+}

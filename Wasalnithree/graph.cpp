@@ -8,12 +8,12 @@
 extern MainWindow* w;
 
 Graph::Graph() {
-    // std::vector<City*>path = dijkstra(c1,c3).second;
-    // for(auto&c:path) qDebug() << c->getName();
-    // removeCity(c1);
-    // removeEdge(c3,c1);
-    // printGraph();
-
+    City* c1 = new City("A", 100, 100);
+    City* c2 = new City("B", 200, 200);
+    addCity(c1);
+    addCity(c2);
+    addEdge(c1, c2, 3);
+    // removeEdge(c1, c2);
 }
 
 void Graph::addCity(City* city)
@@ -23,7 +23,6 @@ void Graph::addCity(City* city)
         // If not, add it to the adjacency list
         adjList[city] = std::vector<std::pair<City*, int>>();
         w->getMap()->getScene()->addItem(city);
-        // qDebug() << "Added city:" << city->getText()->toPlainText();
     } else {
         // output error message
         qDebug() << "City already exists";
@@ -40,9 +39,7 @@ void Graph::addEdge(City* source, City* destination, int weight)
         adjList[destination].push_back({source,weight});
         Edge* l = new Edge(source->getX(),source->getY(),destination->getX(),destination->getY(),weight);
         w->getMap()->getScene()->addItem(l);
-        edgesv.push_back(l);
-        // qDebug() << "Added edge from " << source->getText()->toPlainText() << " to "
-                 // << destination->getText()->toPlainText() << " with weight " << weight;
+        edgesv.append(l);
     } else {
         qDebug() << "One or both cities don't exist in the graph";
     }
@@ -105,15 +102,13 @@ void Graph::removeEdge(City* source, City* destination)
             qDebug() << "Edge not found between " << source->getText()->toPlainText() << " and "
                      << destination->getText()->toPlainText();
         } else {
+            // qDebug() << edgesv[0]->xi << ' ' << edgesv[0]->yi << ' ' << edgesv[0]->xe << ' ' << edgesv[0]->ye;
             for(int i=0;i<int(edgesv.size());i++)
             {
-                if(((edgesv[i]->xi==source->getX()&&edgesv[i]->yi==source->getY())
-                     &&(edgesv[i]->xe==destination->getX()&&edgesv[i]->ye==destination->getY()))
-                    || ((edgesv[i]->xi==destination->getX()&&edgesv[i]->yi==destination->getY())
-                        &&(edgesv[i]->xe==source->getX()&&edgesv[i]->ye==source->getY()) ))
-                {
-                    // qDebug() << "Entered Here\n";
-                    w->getMap()->getScene()->removeItem(edgesv[i]);
+                Edge* e = findEdge(source->getX(), source->getY(), destination->getX(), destination->getY());
+                if(e != NULL) {
+                    w->getMap()->getScene()->removeItem(e);
+                    edgesv.removeAll(e);
                 }
             }
         }
@@ -167,6 +162,21 @@ City *Graph::findCity(QString n)
         if (it->first->getName()==n)
         {
             return it->first;
+        }
+    }
+    return NULL;
+}
+
+Edge *Graph::findEdge(int x1, int y1, int x2, int y2)
+{
+    for(int i=0; i < edgesv.size(); i++)
+    {
+        if(((edgesv[i]->getXi() == x1 && edgesv[i]->getYi() == y1)
+             &&(edgesv[i]->getXe() == x2 && edgesv[i]->getYe() == y2))
+            || ((edgesv[i]->getXi() == x2 && edgesv[i]->getYi() == y2)
+                &&(edgesv[i]->getXe() == x1 && edgesv[i]->getYe() == y1)))
+        {
+            return edgesv[i];
         }
     }
     return NULL;
@@ -234,7 +244,7 @@ void Graph::printGraph() const
     }
 }
 
-std::vector<Edge *> Graph::getEdgesVector()
+QList<Edge *> Graph::getEdgesV()
 {
     return edgesv;
 }
@@ -242,6 +252,18 @@ std::vector<Edge *> Graph::getEdgesVector()
 std::map<City *, std::vector<std::pair<City *, int> > > Graph::getAdjList()
 {
     return adjList;
+}
+
+void Graph::removeDijkstraEffects()
+{
+    // first unbold the cities
+    for(auto& obj : adjList) {
+        if(obj.first->isSelected()) obj.first->useBlueImg();
+        if(obj.first->isTextBold()) obj.first->unBoldText();
+    }
+    for(auto&e : edgesv) {
+        if(e->isLineGreen()) e->changeToBlack();
+    }
 }
 
 void Graph::clearAdjList()

@@ -9,7 +9,7 @@ extern MainWindow* w;
 
 Map::Map() {
     // initialize the view's properties
-    setFixedSize(800, 630);
+    setFixedSize(800, 600);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setWindowTitle("Map");
@@ -20,13 +20,13 @@ void Map::start() {
     finished = false;
     firstPressed = NULL;
     scene = new QGraphicsScene();
-    scene->setSceneRect(0, 0, 800, 630);
+    scene->setSceneRect(0, 0, 800, 600);
 
     // set the scene
     setScene(scene);
 
     // set background image
-    setBackgroundBrush(QPixmap(":/images/images/bg2.jpg").scaled(800,630));
+    setBackgroundBrush(QPixmap(":/images/images/bg1.jpg").scaled(800,600));
 
     // show the view
     show();
@@ -53,9 +53,16 @@ void Map::setFinished(bool b)
     finished = b;
 }
 
+void Map::keyPressEvent(QKeyEvent *event) {
+    if(event->key() == Qt::Key_R) {
+        finished = false;
+        firstPressed = NULL;
+        w->getGraph()->removeDijkstraEffects();
+    }
+}
+
+
 // getters
 bool Map::getFinshed() {return finished;}
-
-
 QGraphicsScene *Map::getScene() {return scene;}
 City *Map::getFirstPressed() {return firstPressed;}

@@ -4,7 +4,9 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <QKeyEvent>
 #include "city.h"
+
 
 class Map : public QGraphicsView
 {
@@ -21,6 +23,7 @@ public:
     void restart();
     void setFinished(bool);
     bool getFinshed();
+    void keyPressEvent(QKeyEvent*);
 };
 
 #endif // MAP_H

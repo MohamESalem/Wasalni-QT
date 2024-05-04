@@ -105,6 +105,9 @@
       </rect>
      </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
       <string>City Name</string>
      </property>
     </widget>
@@ -132,23 +135,32 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLineEdit" name="edgeAddEdgeText">
-        <property name="text">
-         <string>Weight</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QLineEdit" name="city1AddEdgeText">
         <property name="text">
-         <string>City1</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>City 1</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="cityAddEdgeText">
         <property name="text">
-         <string>City2</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>City 2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="edgeAddEdgeText">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Weight</string>
         </property>
        </widget>
       </item>
@@ -180,19 +192,6 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
-    <widget class="QPushButton" name="findShortestPathButton">
-     <property name="geometry">
-      <rect>
-       <x>590</x>
-       <y>90</y>
-       <width>191</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Find Shortest Path</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="layoutWidget_2">
      <property name="geometry">
       <rect>
@@ -208,45 +207,28 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>City Name</string>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="xAddText">
         <property name="text">
-         <string>X coordinate</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>X-coordinate</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="yAddText">
         <property name="text">
-         <string>Y coordinate</string>
+         <string/>
         </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget_3">
-     <property name="geometry">
-      <rect>
-       <x>590</x>
-       <y>20</y>
-       <width>191</width>
-       <height>65</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <widget class="QLineEdit" name="cityOnePathText">
-        <property name="text">
-         <string>City 1</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="cityTwoPathText">
-        <property name="text">
-         <string>City 2</string>
+        <property name="placeholderText">
+         <string>Y-coordinate</string>
         </property>
        </widget>
       </item>
@@ -278,14 +260,20 @@
       <item>
        <widget class="QLineEdit" name="removeEdge1">
         <property name="text">
-         <string>City1</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>City 1</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="removeEdge2">
         <property name="text">
-         <string>City2</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>City 2</string>
         </property>
        </widget>
       </item>
@@ -372,23 +360,6 @@
       <string>*Wrong Cities</string>
      </property>
     </widget>
-    <widget class="QLabel" name="find_path_text_error">
-     <property name="geometry">
-      <rect>
-       <x>580</x>
-       <y>140</y>
-       <width>141</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: red;
-</string>
-     </property>
-     <property name="text">
-      <string>*Wrong Cities</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="saveButton">
      <property name="geometry">
       <rect>
@@ -428,12 +399,25 @@
       <string>Load Edges</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="clearButton">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>60</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
+      <y>-10</y>
       <width>791</width>
       <height>631</height>
      </rect>

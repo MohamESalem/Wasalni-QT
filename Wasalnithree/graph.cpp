@@ -25,18 +25,21 @@ void Graph::addCity(City* city)
 void Graph::addEdge(City* source, City* destination, int weight)
 {
     // Check if both cities exist in the graph
-    if (source != NULL && destination != NULL &&
-        adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
-        // Add the edge from source to destination with the specified weight
-        adjList[source].push_back(std::make_pair(destination, weight));
-        adjList[destination].push_back({source,weight});
-        Edge* l = new Edge(source->getX(),source->getY(),destination->getX(),destination->getY(),weight);
-        w->getMap()->getScene()->addItem(l);
-        edgesv.append(l);
+    if(findEdge(source->getX(), source->getY(), destination->getX(), destination->getY()) == NULL) {
+        if (source != NULL && destination != NULL &&
+            adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
+            // Add the edge from source to destination with the specified weight
+            adjList[source].push_back(std::make_pair(destination, weight));
+            adjList[destination].push_back({source,weight});
+            Edge* l = new Edge(source->getX(),source->getY(),destination->getX(),destination->getY(),weight);
+            w->getMap()->getScene()->addItem(l);
+            edgesv.append(l);
+        } else {
+            qDebug() << "One or both cities don't exist in the graph";
+        }
     } else {
-        qDebug() << "One or both cities don't exist in the graph";
+        qDebug() << "Edge already exists";
     }
-    // printGraph();
 }
 void Graph::removeCity(City* city)
 {

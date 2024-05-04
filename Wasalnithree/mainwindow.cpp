@@ -281,8 +281,6 @@ void MainWindow::on_saveButton_clicked()
 
 void MainWindow::on_LoadCitiesButton_clicked()
 {
-    // Clear existing city data from the graph
-    // graph.clearCities();
 
     QString filePath = QFileDialog::getOpenFileName(this,
                                                     "Load Data",
@@ -299,6 +297,11 @@ void MainWindow::on_LoadCitiesButton_clicked()
         QMessageBox::critical(this, "Error", "Failed to open file for reading");
         return;
     }
+
+    // clear the current map
+    map->restart();
+    graph->clearAdjList();
+    currCityFile = currEdgeFile = NULL;
 
     QTextStream in(&file);
     while (!in.atEnd()) {

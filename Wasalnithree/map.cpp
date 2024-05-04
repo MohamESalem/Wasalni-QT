@@ -3,7 +3,9 @@
 #include <QTextStream>
 #include <QTime>
 #include <QCoreApplication>
+#include <QTransform>
 #include "mainwindow.h"
+#include <QWheelEvent>
 
 extern MainWindow* w;
 
@@ -61,6 +63,23 @@ void Map::keyPressEvent(QKeyEvent *event) {
     }
 }
 
+void Map::wheelEvent(QWheelEvent *event)
+{
+    setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
+    double scaleFactor = 1.05;
+    if(event->angleDelta().y() > 0) {
+        // Zoom in
+        scale(scaleFactor, scaleFactor);
+    } else {
+        // Zooming out
+        scale(1.0 / scaleFactor, 1.0 / scaleFactor);
+    }
+}
+
+void Map::resetView()
+{
+    setTransform(QTransform());
+}
 
 // getters
 bool Map::getFinshed() {return finished;}

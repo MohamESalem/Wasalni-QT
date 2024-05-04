@@ -371,3 +371,9 @@ void MainWindow::on_clearButton_clicked()
     currCityFile = currEdgeFile = NULL;
 }
 
+
+void MainWindow::on_homeViewButton_clicked()
+{
+    map->resetView();
+}
+

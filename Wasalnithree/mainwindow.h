@@ -52,6 +52,8 @@ private slots:
 
     void on_clearButton_clicked();
 
+    void on_homeViewButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QKeyEvent>
+#include <QWheelEvent>
 #include "city.h"
 
 
@@ -24,6 +25,8 @@ public:
     void setFinished(bool);
     bool getFinshed();
     void keyPressEvent(QKeyEvent*);
+    void wheelEvent(QWheelEvent*);
+    void resetView();
 };
 
 #endif // MAP_H

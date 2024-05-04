@@ -399,18 +399,31 @@
       <string>Load Edges</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="clearButton">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>650</x>
-       <y>60</y>
-       <width>80</width>
-       <height>20</height>
+       <x>620</x>
+       <y>70</y>
+       <width>166</width>
+       <height>22</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Clear</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="clearButton">
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="homeViewButton">
+        <property name="text">
+         <string>Home View</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">

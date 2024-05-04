@@ -7,20 +7,7 @@
 
 extern MainWindow* w;
 
-Graph::Graph() {
-    City* c1 = new City("A", 100, 100);
-    City* c2 = new City("B", 200, 200);
-    City* c3 = new City("C", 650, 50);
-    addCity(c1);
-    addCity(c2);
-    addCity(c3);
-    addEdge(c1, c2, 3);
-    addEdge(c2, c3, 4);
-    addEdge(c1, c3, 40);
-    // removeEdge(c1, c2);
-    removeCity(c1);
-    printGraph();
-}
+Graph::Graph() {}
 
 void Graph::addCity(City* city)
 {

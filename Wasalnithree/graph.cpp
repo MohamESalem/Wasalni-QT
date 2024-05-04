@@ -25,7 +25,7 @@ void Graph::addCity(City* city)
 void Graph::addEdge(City* source, City* destination, int weight)
 {
     // Check if both cities exist in the graph
-    if(findEdge(source->getX(), source->getY(), destination->getX(), destination->getY()) == NULL) {
+    if(!isEdgeExist(source, destination)) {
         if (source != NULL && destination != NULL &&
             adjList.find(source) != adjList.end() && adjList.find(destination) != adjList.end()) {
             // Add the edge from source to destination with the specified weight

@@ -198,7 +198,7 @@ void MainWindow::on_addEdgeButton_clicked()
         * c2 = graph->findCity(c2L->text());
     int weight = wL->text().toInt();
 
-    if(!wL->text().isEmpty() && c1 != NULL && c2 != NULL) {
+    if(!wL->text().isEmpty() && c1 != NULL && c2 != NULL && !graph->isEdgeExist(c1,c2)) {
         graph->addEdge(c1, c2, weight);
         ui->add_edge_text_error->setVisible(false);
         ui->cityAddEdgeText->clear();

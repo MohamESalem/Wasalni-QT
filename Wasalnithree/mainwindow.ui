@@ -9,19 +9,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>811</width>
-    <height>820</height>
+    <width>812</width>
+    <height>842</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>804</width>
+    <width>812</width>
     <height>820</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>900</width>
+    <width>812</width>
     <height>842</height>
    </size>
   </property>
@@ -399,7 +399,7 @@
       <string>Load Edges</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>620</x>

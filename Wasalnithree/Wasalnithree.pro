@@ -14,17 +14,20 @@ SOURCES += \
     graph.cpp \
     main.cpp \
     mainwindow.cpp \
-    map.cpp
+    map.cpp \
+    menu.cpp
 
 HEADERS += \
     city.h \
     edge.h \
     graph.h \
     mainwindow.h \
-    map.h
+    map.h \
+    menu.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

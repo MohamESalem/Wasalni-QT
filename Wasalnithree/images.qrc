@@ -4,6 +4,7 @@
         <file>images/green.png</file>
         <file>images/orange.png</file>
         <file>images/white.png</file>
+        <file>images/Main.png</file>
     </qresource>
     <qresource prefix="/files">
         <file>files/city.txt</file>

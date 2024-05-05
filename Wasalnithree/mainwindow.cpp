@@ -166,10 +166,10 @@ void MainWindow::on_addButton_clicked()
                   * cityL = ui->cityNameAddText;
     int x = xL->text().toInt();
     int y = yL->text().toInt();
-    QString cityName = cityL->text();
+    QString cityName = cityL->text().trimmed();
     // check if x and y are valid coordinates
 
-    if((!xL->text().isEmpty() && !yL->text().isEmpty() && !cityL->text().isEmpty())
+    if((!xL->text().trimmed().isEmpty() && !yL->text().trimmed().isEmpty() && !cityL->text().trimmed().isEmpty())
         && (x >= 0 && x <= 800) && (y >= 0 && y <= 630))
     {
         City* c=new City(cityName, x, y);
@@ -194,11 +194,11 @@ void MainWindow::on_addEdgeButton_clicked()
     QLineEdit* c1L = ui->city1AddEdgeText,
              * c2L = ui->cityAddEdgeText,
              * wL = ui->edgeAddEdgeText;
-    City* c1 = graph->findCity(c1L->text()),
-        * c2 = graph->findCity(c2L->text());
+    City* c1 = graph->findCity(c1L->text().trimmed()),
+        * c2 = graph->findCity(c2L->text().trimmed());
     int weight = wL->text().toInt();
 
-    if(!wL->text().isEmpty() && c1 != NULL && c2 != NULL && !graph->isEdgeExist(c1,c2)) {
+    if(!wL->text().trimmed().isEmpty() && c1 != NULL && c2 != NULL && !graph->isEdgeExist(c1,c2)) {
         graph->addEdge(c1, c2, weight);
         ui->add_edge_text_error->setVisible(false);
         ui->cityAddEdgeText->clear();
@@ -211,8 +211,8 @@ void MainWindow::on_addEdgeButton_clicked()
 
 void MainWindow::on_remove_clicked()
 {
-    City* c = graph->findCity(ui->cityNameRemoveText->text());
-    if(c==NULL && !ui->cityNameRemoveText->text().isEmpty())
+    City* c = graph->findCity(ui->cityNameRemoveText->text().trimmed());
+    if(c==NULL && !ui->cityNameRemoveText->text().trimmed().isEmpty())
     {
         ui->remove_text_error->setVisible(true);
     }
@@ -228,10 +228,10 @@ void MainWindow::on_removeEdgeButton_clicked()
 {
     QLineEdit* c1L = ui->removeEdge1,
         * c2L = ui->removeEdge2;
-    if(!c1L->text().isEmpty() && !c2L->text().isEmpty() &&
-        graph->isEdgeExist(graph->findCity(c1L->text()), graph->findCity(c2L->text())))
+    if(!c1L->text().trimmed().isEmpty() && !c2L->text().trimmed().isEmpty() &&
+        graph->isEdgeExist(graph->findCity(c1L->text().trimmed()), graph->findCity(c2L->text().trimmed())))
     {
-        graph->removeEdge(graph->findCity(ui->removeEdge1->text()), graph->findCity(ui->removeEdge2->text()));
+        graph->removeEdge(graph->findCity(ui->removeEdge1->text().trimmed()), graph->findCity(ui->removeEdge2->text().trimmed()));
         ui->remove_edge_text_error->setVisible(false);
         ui->removeEdge1->clear();
         ui->removeEdge2->clear();

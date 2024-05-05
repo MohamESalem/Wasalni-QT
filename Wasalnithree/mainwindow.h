@@ -7,6 +7,7 @@
 #include "graph.h"
 #include "map.h"
 #include <QFile>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,6 +23,8 @@ private:
     Graph* graph;
     QFile* currCityFile;
     QFile* currEdgeFile;
+    void showCriticalMsg(QString,QString);
+    void showInfoMsg(QString,QString);
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();

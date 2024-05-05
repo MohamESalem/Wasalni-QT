@@ -3,9 +3,7 @@
         <file>images/blue.png</file>
         <file>images/green.png</file>
         <file>images/orange.png</file>
-        <file>images/bg1.jpg</file>
-        <file>images/bg2.jpg</file>
-        <file>images/white.webp</file>
+        <file>images/white.png</file>
     </qresource>
     <qresource prefix="/files">
         <file>files/city.txt</file>

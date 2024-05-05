@@ -9,17 +9,30 @@
 #include "city.h"
 #include "ui_mainwindow.h"
 
+void MainWindow::showCriticalMsg(QString title, QString msg)
+{
+    QMessageBox msgBox;
+    msgBox.setIcon(QMessageBox::Critical);
+    msgBox.setWindowTitle(title);
+    msgBox.setText(msg);
+    msgBox.exec();
+}
+
+void MainWindow::showInfoMsg(QString title, QString msg)
+{
+    QMessageBox msgBox;
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setWindowTitle(title);
+    msgBox.setText(msg);
+    msgBox.exec();
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     currCityFile = NULL;
-    currEdgeFile = NULL;
-    // ui->remove_text_error->setVisible(false);
-    // ui->remove_edge_text_error->setVisible(false);
-    // ui->add_text_error->setVisible(false);
-    // ui->add_edge_text_error->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -49,12 +62,12 @@ void MainWindow::start()
 
 void MainWindow::showNoPathMsg()
 {
-    QMessageBox::critical(this, "No Path", "Sorry! No path exists between these two cities");
+    showInfoMsg("No Path", "Sorry! No path exists between these two cities");
 }
 
 void MainWindow::showPressRMsg()
 {
-    QMessageBox::critical(this, "Clear The Effect First", "Press R to find the shortest path between other cities!");
+    showCriticalMsg("Clear The Effect First", "Press R to find the shortest path between other cities!");
 }
 
 void MainWindow::saveNewCityFile()
@@ -74,11 +87,10 @@ void MainWindow::saveNewCityFile()
         }
         cityFile.flush();
         cityFile.close();
-        QMessageBox::information(this,
-                                 "Success",
-                                 "City data saved to " + cityFileName + " in " + currentDir);
+        // show a QMessageBox
+        showInfoMsg("Success", "City data saved to " + cityFileName + " in " + currentDir);
     } else {
-        QMessageBox::critical(this, "Error", "Failed to save city data");
+        showCriticalMsg("Error", "Failed to save city data");
     }
 }
 
@@ -92,9 +104,9 @@ void MainWindow::saveCurrCityFile()
         }
         currCityFile->flush();
         currCityFile->close();
-        QMessageBox::information(this, "Success", "City data saved in " + currCityFile->fileName());
+        showInfoMsg("Success", "City data saved in " + currCityFile->fileName());
     } else {
-        QMessageBox::critical(this, "Error", "Failed to save city data");
+        showCriticalMsg("Error", "Failed to save city data");
     }
 }
 
@@ -125,11 +137,9 @@ void MainWindow::saveNewEdgeFile()
         }
         edgeFile.flush();
         edgeFile.close();
-        QMessageBox::information(this,
-                                 "Success",
-                                 "Edge data saved to " + edgeFileName + " in " + currentDir);
+        showInfoMsg("Success", "Edge data saved to " + edgeFileName + " in " + currentDir);
     } else {
-        QMessageBox::critical(this, "Error", "Failed to save edge data");
+        showCriticalMsg("Error", "Failed to save edge data");
     }
 }
 
@@ -153,9 +163,9 @@ void MainWindow::saveCurrEdgeFile()
         }
         currEdgeFile->flush();
         currEdgeFile->close();
-        QMessageBox::information(this, "Success", "Edge data saved to " + currEdgeFile->fileName());
+        showInfoMsg("Success", "Edge data saved to " + currEdgeFile->fileName());
     } else {
-        QMessageBox::critical(this, "Error", "Failed to save edge data");
+        showCriticalMsg("Error", "Failed to save edge data");
     }
 }
 
@@ -174,18 +184,17 @@ void MainWindow::on_addButton_clicked()
     {
         City* c=new City(cityName, x, y);
         if(graph->findCity(c->getName())) {
-            // ui->add_text_error->setVisible(true);
+            showCriticalMsg("Wrong Input", "City Already Exists");
         } else {
             graph->addCity(c);
-            // ui->add_text_error->setVisible(false);
             ui->cityNameAddText->clear();
             ui->xAddText->clear();
             ui->yAddText->clear();
         }
-    } // else output error message
+    }
     else
     {
-        // ui->add_text_error->setVisible(true);
+        showCriticalMsg("Wrong Input", "City Already Exists");
     }
 }
 
@@ -200,12 +209,11 @@ void MainWindow::on_addEdgeButton_clicked()
 
     if(!wL->text().trimmed().isEmpty() && c1 != NULL && c2 != NULL && !graph->isEdgeExist(c1,c2)) {
         graph->addEdge(c1, c2, weight);
-        // ui->add_edge_text_error->setVisible(false);
         ui->cityAddEdgeText->clear();
         ui->city1AddEdgeText->clear();
         ui->edgeAddEdgeText->clear();
     } else {
-        // ui->add_edge_text_error->setVisible(true);
+        showCriticalMsg("Wrong Input", "One or both cities don't exist");
     }
 }
 
@@ -214,11 +222,10 @@ void MainWindow::on_remove_clicked()
     City* c = graph->findCity(ui->cityNameRemoveText->text().trimmed());
     if(c==NULL && !ui->cityNameRemoveText->text().trimmed().isEmpty())
     {
-        // ui->remove_text_error->setVisible(true);
+        showCriticalMsg("Wrong Input", "City does NOT exist");
     }
     else
     {
-        // ui->remove_text_error->setVisible(false);
         graph->removeCity(c);
         ui->cityNameRemoveText->clear();
     }
@@ -232,11 +239,10 @@ void MainWindow::on_removeEdgeButton_clicked()
         graph->isEdgeExist(graph->findCity(c1L->text().trimmed()), graph->findCity(c2L->text().trimmed())))
     {
         graph->removeEdge(graph->findCity(ui->removeEdge1->text().trimmed()), graph->findCity(ui->removeEdge2->text().trimmed()));
-        // ui->remove_edge_text_error->setVisible(false);
         ui->removeEdge1->clear();
         ui->removeEdge2->clear();
     } else {
-        // ui->remove_edge_text_error->setVisible(true);
+        showCriticalMsg("Wrong Input", "The edge between the two cities doesn't exist");
     }
 }
 
@@ -247,8 +253,6 @@ void MainWindow::on_saveButton_clicked()
         saveNewCityFile();
         saveNewEdgeFile();
     } else {
-        // QString cityFilePath = currCityFile ? currCityFile->fileName() : "",
-        //     edgeFilePath = currEdgeFile ? currEdgeFile->fileName() : "";
         QMessageBox msgBox;
         msgBox.setWindowTitle("Save Your Changes");
         msgBox.setText("Do you want to save the changes in the same loaded files or in new files?");
@@ -294,7 +298,7 @@ void MainWindow::on_LoadCitiesButton_clicked()
     currCityFile = new QFile(filePath);
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(this, "Error", "Failed to open file for reading");
+        showCriticalMsg("Error", "Failed to open file for reading");
         return;
     }
 
@@ -317,7 +321,7 @@ void MainWindow::on_LoadCitiesButton_clicked()
     }
 
     file.close();
-    QMessageBox::information(this, "Success", "Data loaded successfully from " + filePath);
+    showInfoMsg("Success", "Data loaded successfully from " + filePath);
 }
 
 void MainWindow::on_LoadEdgesButton_clicked()
@@ -338,7 +342,7 @@ void MainWindow::on_LoadEdgesButton_clicked()
 
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(this, "Error", "Failed to open file for reading");
+        showCriticalMsg("Error", "Failed to open file for reading");
         return;
     }
 
@@ -361,7 +365,7 @@ void MainWindow::on_LoadEdgesButton_clicked()
     }
 
     file.close();
-    QMessageBox::information(this, "Success", "Edge data loaded successfully from " + filePath);
+    showInfoMsg("Success", "Edge data loaded successfully from " + filePath);
 }
 
 void MainWindow::on_clearButton_clicked()

@@ -524,6 +524,26 @@ border: 1px solid #9ac3fe;
    <zorder>cityNameAddText</zorder>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>cityNameAddText</tabstop>
+  <tabstop>xAddText</tabstop>
+  <tabstop>yAddText</tabstop>
+  <tabstop>addButton</tabstop>
+  <tabstop>cityNameRemoveText</tabstop>
+  <tabstop>remove</tabstop>
+  <tabstop>city1AddEdgeText</tabstop>
+  <tabstop>cityAddEdgeText</tabstop>
+  <tabstop>edgeAddEdgeText</tabstop>
+  <tabstop>addEdgeButton</tabstop>
+  <tabstop>removeEdge1</tabstop>
+  <tabstop>removeEdge2</tabstop>
+  <tabstop>removeEdgeButton</tabstop>
+  <tabstop>saveButton</tabstop>
+  <tabstop>LoadCitiesButton</tabstop>
+  <tabstop>LoadEdgesButton</tabstop>
+  <tabstop>clearButton</tabstop>
+  <tabstop>homeViewButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

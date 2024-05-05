@@ -28,7 +28,7 @@ void Map::start() {
     setScene(scene);
 
     // set background image
-    setBackgroundBrush(QPixmap(":/images/images/bg1.jpg").scaled(800,600));
+    setBackgroundBrush(QPixmap(":/images/images/white.webp").scaled(800,600));
 
     // show the view
     show();

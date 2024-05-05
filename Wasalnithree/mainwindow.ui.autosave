@@ -64,7 +64,7 @@ QPushButton {
 background-color: #FBDFDF;
 border: 1px solid #343155;
 color: #2E0606;
-border-radius: 16px;
+border-radius: 40px;
 }
 
 QPushButton:hover,
@@ -110,8 +110,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -130,8 +131,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -159,8 +161,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -185,8 +188,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -205,8 +209,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -225,8 +230,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -245,8 +251,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -268,8 +275,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -291,8 +299,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -314,8 +323,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -334,8 +344,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -357,8 +368,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -380,8 +392,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -403,8 +416,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -423,8 +437,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -446,8 +461,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -472,8 +488,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">
@@ -492,8 +509,9 @@ border: 1px solid #9ac3fe;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>9</pointsize>
+      <pointsize>10</pointsize>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="text">

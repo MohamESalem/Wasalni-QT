@@ -16,10 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     currCityFile = NULL;
     currEdgeFile = NULL;
-    ui->remove_text_error->setVisible(false);
-    ui->remove_edge_text_error->setVisible(false);
-    ui->add_text_error->setVisible(false);
-    ui->add_edge_text_error->setVisible(false);
+    // ui->remove_text_error->setVisible(false);
+    // ui->remove_edge_text_error->setVisible(false);
+    // ui->add_text_error->setVisible(false);
+    // ui->add_edge_text_error->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -174,10 +174,10 @@ void MainWindow::on_addButton_clicked()
     {
         City* c=new City(cityName, x, y);
         if(graph->findCity(c->getName())) {
-            ui->add_text_error->setVisible(true);
+            // ui->add_text_error->setVisible(true);
         } else {
             graph->addCity(c);
-            ui->add_text_error->setVisible(false);
+            // ui->add_text_error->setVisible(false);
             ui->cityNameAddText->clear();
             ui->xAddText->clear();
             ui->yAddText->clear();
@@ -185,7 +185,7 @@ void MainWindow::on_addButton_clicked()
     } // else output error message
     else
     {
-        ui->add_text_error->setVisible(true);
+        // ui->add_text_error->setVisible(true);
     }
 }
 
@@ -200,12 +200,12 @@ void MainWindow::on_addEdgeButton_clicked()
 
     if(!wL->text().trimmed().isEmpty() && c1 != NULL && c2 != NULL && !graph->isEdgeExist(c1,c2)) {
         graph->addEdge(c1, c2, weight);
-        ui->add_edge_text_error->setVisible(false);
+        // ui->add_edge_text_error->setVisible(false);
         ui->cityAddEdgeText->clear();
         ui->city1AddEdgeText->clear();
         ui->edgeAddEdgeText->clear();
     } else {
-        ui->add_edge_text_error->setVisible(true);
+        // ui->add_edge_text_error->setVisible(true);
     }
 }
 
@@ -214,11 +214,11 @@ void MainWindow::on_remove_clicked()
     City* c = graph->findCity(ui->cityNameRemoveText->text().trimmed());
     if(c==NULL && !ui->cityNameRemoveText->text().trimmed().isEmpty())
     {
-        ui->remove_text_error->setVisible(true);
+        // ui->remove_text_error->setVisible(true);
     }
     else
     {
-        ui->remove_text_error->setVisible(false);
+        // ui->remove_text_error->setVisible(false);
         graph->removeCity(c);
         ui->cityNameRemoveText->clear();
     }
@@ -232,11 +232,11 @@ void MainWindow::on_removeEdgeButton_clicked()
         graph->isEdgeExist(graph->findCity(c1L->text().trimmed()), graph->findCity(c2L->text().trimmed())))
     {
         graph->removeEdge(graph->findCity(ui->removeEdge1->text().trimmed()), graph->findCity(ui->removeEdge2->text().trimmed()));
-        ui->remove_edge_text_error->setVisible(false);
+        // ui->remove_edge_text_error->setVisible(false);
         ui->removeEdge1->clear();
         ui->removeEdge2->clear();
     } else {
-        ui->remove_edge_text_error->setVisible(true);
+        // ui->remove_edge_text_error->setVisible(true);
     }
 }
 

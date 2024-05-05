@@ -9,6 +9,14 @@
 #include "city.h"
 #include "ui_mainwindow.h"
 
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    currCityFile = currEdgeFile = NULL;
+}
+
 void MainWindow::showCriticalMsg(QString title, QString msg)
 {
     QMessageBox msgBox;
@@ -25,14 +33,6 @@ void MainWindow::showInfoMsg(QString title, QString msg)
     msgBox.setWindowTitle(title);
     msgBox.setText(msg);
     msgBox.exec();
-}
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-    currCityFile = NULL;
 }
 
 MainWindow::~MainWindow()

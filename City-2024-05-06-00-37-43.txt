@@ -1,0 +1,4 @@
+Cairo 180 170
+Alexandria 10 10
+Ismailia 350 10
+Sharqia 400 600

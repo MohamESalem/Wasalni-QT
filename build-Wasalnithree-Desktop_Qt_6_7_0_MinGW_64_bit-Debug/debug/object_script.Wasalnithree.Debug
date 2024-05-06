@@ -1,0 +1,10 @@
+debug/city.o
+debug/edge.o
+debug/graph.o
+debug/main.o
+debug/mainwindow.o
+debug/map.o
+debug/menu.o
+debug/qrc_images.o
+debug/moc_mainwindow.o
+debug/moc_menu.o

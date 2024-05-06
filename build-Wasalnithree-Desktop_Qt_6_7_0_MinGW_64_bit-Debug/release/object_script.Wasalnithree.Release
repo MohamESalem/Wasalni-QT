@@ -1,0 +1,10 @@
+release/city.o
+release/edge.o
+release/graph.o
+release/main.o
+release/mainwindow.o
+release/map.o
+release/menu.o
+release/qrc_images.o
+release/moc_mainwindow.o
+release/moc_menu.o

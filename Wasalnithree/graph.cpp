@@ -41,6 +41,7 @@ void Graph::addEdge(City* source, City* destination, int weight)
         qDebug() << "Edge already exists";
     }
 }
+
 void Graph::removeCity(City* city)
 {
     // Check if the city exists in the graph
@@ -258,4 +259,5 @@ void Graph::removeDijkstraEffects()
 void Graph::clearAdjList()
 {
     adjList.clear();
+    edgesv.clear();
 }

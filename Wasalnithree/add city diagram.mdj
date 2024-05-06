@@ -4,39 +4,6 @@
 	"name": "Untitled",
 	"ownedElements": [
 		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true,
-					"ownedViews": [
-						{
-							"_type": "UMLTextView",
-							"_id": "AAAAAAGPSuBA6eYZAYc=",
-							"_parent": {
-								"$ref": "AAAAAAFF+qBtyKM79qY="
-							},
-							"font": "Arial;13;0",
-							"left": 572,
-							"top": 290,
-							"width": 100,
-							"height": 25
-						}
-					]
-				}
-			]
-		},
-		{
 			"_type": "UMLActivity",
 			"_id": "AAAAAAGPSsF5Jeo6Xvc=",
 			"_parent": {
@@ -221,7 +188,7 @@
 											"top": 343,
 											"width": 260.314453125,
 											"height": 13,
-											"text": "add city and its neigbours vector to graph"
+											"text": "add city and its neigbours vector to map"
 										},
 										{
 											"_type": "LabelView",
@@ -404,7 +371,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -144,
-											"top": 32,
+											"top": 16,
 											"height": 13
 										},
 										{
@@ -415,10 +382,10 @@
 											},
 											"font": "Arial;13;1",
 											"left": 381,
-											"top": 343,
+											"top": 335,
 											"width": 142.603515625,
 											"height": 13,
-											"text": "qDebug error message"
+											"text": "show error message"
 										},
 										{
 											"_type": "LabelView",
@@ -429,7 +396,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -144,
-											"top": 32,
+											"top": 16,
 											"width": 86.6708984375,
 											"height": 13,
 											"text": "(from Activity1)"
@@ -443,14 +410,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -144,
-											"top": 32,
+											"top": 16,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 376,
-									"top": 336,
+									"top": 328,
 									"width": 152.603515625,
 									"height": 25,
 									"stereotypeLabel": {
@@ -470,7 +437,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 376,
-							"top": 336,
+							"top": 328,
 							"width": 151.603515625,
 							"height": 41,
 							"nameCompartment": {
@@ -497,8 +464,8 @@
 										"$ref": "AAAAAAGPSs/2cOsFQxs="
 									},
 									"font": "Arial;13;0",
-									"left": 374,
-									"top": 253,
+									"left": 373,
+									"top": 248,
 									"width": 23.84814453125,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -520,8 +487,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 396,
-									"top": 243,
+									"left": 395,
+									"top": 238,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -541,8 +508,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 362,
-									"top": 272,
+									"left": 363,
+									"top": 269,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -560,7 +527,7 @@
 								"$ref": "AAAAAAGPSsm4ceqBQYE="
 							},
 							"lineStyle": 1,
-							"points": "316:204;432:335",
+							"points": "317:204;432:327",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGPSs/2cOsHTF8="
@@ -609,8 +576,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 402,
-									"top": 472,
+									"left": 403,
+									"top": 468,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -630,8 +597,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 415,
-									"top": 479,
+									"left": 416,
+									"top": 475,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -651,8 +618,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 375,
-									"top": 459,
+									"left": 376,
+									"top": 455,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -670,7 +637,7 @@
 								"$ref": "AAAAAAGPSs8UUurtgr8="
 							},
 							"lineStyle": 1,
-							"points": "439:378;340:567",
+							"points": "440:370;340:567",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGPStA0wOseTRo="
@@ -998,7 +965,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGPSsF5Jeo6Xvc="
 					},
-					"name": "add city and its neigbours vector to graph"
+					"name": "add city and its neigbours vector to map"
 				},
 				{
 					"_type": "UMLAction",
@@ -1006,7 +973,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGPSsF5Jeo6Xvc="
 					},
-					"name": "qDebug error message"
+					"name": "show error message"
 				},
 				{
 					"_type": "UMLActivityFinalNode",
